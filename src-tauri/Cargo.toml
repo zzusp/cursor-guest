@@ -1,0 +1,32 @@
+[package]
+name = "cursor-guest"
+version = "0.0.1"
+description = "Cursor Guest Application"
+authors = ["codeva"]
+license = ""
+repository = ""
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5.0", features = [] }
+winres = "0.1"
+
+[dependencies]
+tauri = { version = "1.5.4", features = [ "process-all", "dialog-all", "shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.7.0", features = ["v4", "fast-rng"] }
+rand = "0.8.5"
+dirs = "5.0.1"
+lazy_static = "1.4.0"
+encoding_rs = "0.8.33"
+chrono = "0.4.31"
+winreg = "0.52.0"
+winapi = { version = "0.3.9", features = [
+  "winuser", "processthreadsapi", "handleapi", "securitybaseapi",
+  "aclapi", "accctrl", "minwinbase", "tlhelp32", "shellapi",
+  "fileapi", "combaseapi", "objbase", "psapi", "errhandlingapi"
+] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"] 
